@@ -1,4 +1,6 @@
 ﻿//part 1
+using System.Runtime.Intrinsics.Arm;
+
 System.Console.Write("What is your full name? ");
 string fullName = Console.ReadLine();
 fullName = fullName.Trim();
@@ -20,3 +22,33 @@ int lockerNum = rng.Next(1, 501);
 //output
 System.Console.WriteLine("Student ID: " + studentID);
 System.Console.WriteLine("Locker: " + lockerNum);
+
+//part 3
+System.Console.Write("What is your dorm's x? ");
+int dormX = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("What is your dorm's y? ");
+int dormY = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("What is your classroom's x? ");
+int classX = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("What is your classroom's y? ");
+int classY = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("What is your walking speed in feet per second? ");
+double walkingSpeed = Convert.ToDouble(Console.ReadLine());
+
+//math
+int diffX = classX - dormX;
+double squareDiffX = Math.Pow(diffX, 2);
+int diffY = classY - dormY;
+double squareDiffY = Math.Pow(diffY, 2);
+double addThem = squareDiffX + squareDiffY;
+double distance = Math.Sqrt(addThem);
+double distanceRounded = Math.Round(distance, 1);
+double tripSeconds = distance / walkingSpeed;
+double timeRounded = Math.Round(tripSeconds, 0);
+double minutes = timeRounded / 60;
+double minutesRounded = Math.Round(minutes, 0);
+double seconds = timeRounded % 60;
+
+//output
+System.Console.WriteLine("Distance: " + distanceRounded + " feet");
+System.Console.WriteLine("Walk Time: " + minutesRounded + " minutes " + seconds + " seconds");
