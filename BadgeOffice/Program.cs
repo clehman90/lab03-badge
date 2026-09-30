@@ -1,4 +1,13 @@
-﻿//part 1
+﻿/*
+* Name: Chris Lehman
+* Course: CSCI 1250, Section 002
+* Assignment: Lab 03, The Badge Office
+* Date: September 30, 2026
+* Decription: Builds a student badge from a name, two random assignments,
+* and the walking distance to a first class.
+*/
+
+//part 1
 using System.Runtime.Intrinsics.Arm;
 
 System.Console.Write("What is your full name? ");
@@ -52,3 +61,14 @@ double seconds = timeRounded % 60;
 //output
 System.Console.WriteLine("Distance: " + distanceRounded + " feet");
 System.Console.WriteLine("Walk Time: " + minutesRounded + " minutes " + seconds + " seconds");
+
+//part 4
+System.Console.WriteLine("==================================");
+System.Console.WriteLine("ETSU STUDENT BADGE".PadLeft(26));
+System.Console.WriteLine("==================================");
+System.Console.WriteLine("NAME".PadRight(10) + fullName.ToUpper());
+System.Console.WriteLine("USERNAME".PadRight(10) + firstName.Substring(0,1) + lastName.ToLower());
+int checkDigit = studentID % 9;
+System.Console.WriteLine("ID".PadRight(10) + studentID + "-" + checkDigit);
+System.Console.WriteLine("LOCKER".PadRight(10) + lockerNum);
+System.Console.WriteLine("WALK".PadRight(10) + minutesRounded + " min " + seconds + " sec");
